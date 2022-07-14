@@ -1,0 +1,113 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <!-- [ breadcrumb ] start -->
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/"><i class="feather icon-file-text"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Journal</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-md-12 col-xl-4">
+                                    <div class="card yearly-sales">
+                                        <div class="card-header">
+                                            <h5>Ajouter une journal</h5>
+                                        </div>
+                                        <div class="card-block">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label>Nom Journal</label>
+                                                    <input type="text" class="form-control" placeholder="Nom du Journal">
+                                                </div>
+                                                <button type="button" class="btn btn-outline-light" title="" data-toggle="tooltip">Ajouter</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--[ Recent Users ] start-->
+                                <div class="col-xl-8 col-md-6">
+                                    <div class="card Recent-Users">
+                                        <div class="card-header">
+                                            <h5>Liste des journals</h5>
+                                        </div>
+                                        <div class="card-block table-border-style">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Nom Journal</th>
+                                                            <th>Options</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>LE-TELEGRAMME-EDITION-LORIENT</td>
+                                                            <td>
+                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
+                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>SUD-OUEST-LA-ROCHELLE</td>
+                                                            <td>
+                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
+                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">3</th>
+                                                            <td>OUEST-FRANCE-EDITION-NORD-MAYENNE</td>
+                                                            <td>
+                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
+                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--[ Recent Users ] end-->
+                                <!--[social-media section] end-->
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->            
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

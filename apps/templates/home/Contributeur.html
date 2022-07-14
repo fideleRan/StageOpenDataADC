@@ -1,0 +1,129 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <!-- [ breadcrumb ] start -->
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/"><i class="feather icon-user"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Contributeur</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-md-12 col-xl-4">
+                                    <div class="card yearly-sales">
+                                        <div class="card-header">
+                                            <h5>Ajouter un contributeur</h5>
+                                        </div>
+                                        <div class="card-block">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label>Nom</label>
+                                                    <input type="text" class="form-control" placeholder="Nom">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Prénom</label>
+                                                    <input type="text" class="form-control" placeholder="Prénom">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input type="email" class="form-control" placeholder="exemple@gmail.com">
+                                                </div>
+                                                <button type="button" class="btn btn-outline-light" title="" data-toggle="tooltip">Ajouter</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--[ Recent Users ] start-->
+                                <div class="col-xl-8 col-md-6">
+                                    <div class="card Recent-Users">
+                                        <div class="card-header">
+                                            <h5>Liste des contributeurs</h5>
+                                        </div>
+                                        <div class="card-block table-border-style">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Nom</th>
+                                                            <th>Prénom</th>
+                                                            <th>Email</th>
+                                                            <th>Options</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>ANDRIMALALA</td>
+                                                            <td>Rakoto</td>
+                                                            <td>rokoto02@gmail.com</td>
+                                                            <td>
+                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
+                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>RANDRIAMARO</td>
+                                                            <td>Thornton</td>
+                                                            <td>Thornton356@gmail.com</td>
+                                                            <td>
+                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
+                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">3</th>
+                                                            <td>ZAFIMANANA</td>
+                                                            <td>Andreas</td>
+                                                            <td>andreas865@gmail.com</td>
+                                                            <td>
+                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
+                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--[ Recent Users ] end-->
+                                <!--[social-media section] end-->
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->            
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
