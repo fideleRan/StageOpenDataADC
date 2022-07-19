@@ -3,18 +3,34 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
+from multiprocessing import context
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+from django.shortcuts import render
+
+from apps.home.models import Journal
 
 
 @login_required(login_url="/login/")
+#views Accueil
 def index(request):
     context = {'segment': 'index'}
+    html_template = loader.get_template('home/Accueil.html')
+    return HttpResponse(html_template.render(context, request))
 
-    html_template = loader.get_template('home/index.html')
+# View Journal
+def journal(request) :
+    context = {'jrnl' : 'journal' }
+    html_template = loader.get_template('home/Journal.html')
+    return HttpResponse(html_template.render(context, request))
+
+# View Contributeur
+def contributeur(request) :
+    context = {'contib' : 'contributeur'}
+    html_template = loader.get_template('home/Contributeur.html')
     return HttpResponse(html_template.render(context, request))
 
 
