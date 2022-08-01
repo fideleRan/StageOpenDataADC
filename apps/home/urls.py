@@ -9,31 +9,31 @@ from apps.home import views
 urlpatterns = [
     # -- ADMIN USER -- #
         #++Journal page
-    path('Journal/', views.journal, name="jrnl"),
+    path('adminUser/journal/', views.journal, name="jrnl"),
     
         #++Contributeur page
-    path('Contributeur/', views.contributeur, name="contrib"),
+    path('adminUser/contributeur/', views.contributeur, name="contrib"),
     
         #++Recapitulation page
-    path('Recapitulation/' , views.recapitulation, name="recap"),
+    path('adminUser/recapitulation/' , views.recapitulation, name="recap"),
     
     
     # -- SIMPLE USER -- #
         #++Accueil
-    path('User/', views.utilisateur , name="accueil_user_url"),
+    path('contributeur/user/', views.utilisateur , name="accueil_user_url"),
         #++Traitement
-    path('Traitement/', views.traitement_user , name='traitement_user_url'),
+    path('contributeur/traitement/', views.traitement_user , name='traitement_user_url'),
         #++Execution
-    path('Execution_du_journal/', views.execution_user , name='execution_user_url'),
+    path('contributeur/executionDuJournal/', views.execution_user , name='execution_user_url'),
         #++Affichage journal
-    path('Affichage/', views.affichage_user, name="affiche_journal"),
+    path('contributeur/affichage/', views.affichage_user, name="affiche_journal"),
         #++Rapport_user
-    path('Mon_rapport/', views.rapport_user, name='rapp_user'),
+    path('contributeur/monRapport/', views.rapport_user, name='rapp_user'),
     
     # The home page
     path('Accueil/', views.index, name='home'),
 
     # Matches any html file
-    re_path(r'^.*\.*', views.pages, name='pages'),
+    # re_path(r'^.*\.*', views.pages, name='pages'),
 
 ]
