@@ -15,25 +15,71 @@ from apps.home.models import Journal
 
 
 @login_required(login_url="/login/")
-#views Accueil
+# ---------------- ADMIN USER ----------------- #
+# views Admin
+    # views Accueil_admin
 def index(request):
     context = {'segment': 'index'}
     html_template = loader.get_template('home/Accueil.html')
     return HttpResponse(html_template.render(context, request))
 
-# View Journal
+    # View Journal_admin
 def journal(request) :
-    context = {'jrnl' : 'journal' }
+    #Ajout journal
+    if request.method=="POST":
+        nom_du_journal = request.POST['nomJournal']
+        objet_journal = Journal.objects.create(nom_du_journal = nom_du_journal)
+        
+    else:
+        pass
+    
+    #Afficher tout les journaux
+    journaux = Journal.objects.all()
+    context = {'journal' : journaux }
     html_template = loader.get_template('home/Journal.html')
     return HttpResponse(html_template.render(context, request))
 
-# View Contributeur
+    # View Contributeur_admin
 def contributeur(request) :
     context = {'contib' : 'contributeur'}
     html_template = loader.get_template('home/Contributeur.html')
     return HttpResponse(html_template.render(context, request))
+    # View Recapitulation_admin
+def recapitulation(request) :
+    context = {'recap' : 'recapitulation'}
+    html_template = loader.get_template('home/Recapitulation.html')
+    return HttpResponse(html_template.render(context, request))
 
 
+# -------------- SIMPLE USER -------------- #
+# View Utilisateur simple
+    # Accueil USER
+def utilisateur(request) :
+    context = {'utilisateur' : 'utilisateur'}
+    html_template = loader.get_template('contributeur/Utilisateur.html')
+    return HttpResponse(html_template.render(context, request))
+    # Traitement USER
+def traitement_user(request) :
+    context = {'traitement' : 'traitement'}
+    html_template = loader.get_template('contributeur/Traitement.html')
+    return HttpResponse(html_template.render(context, request))    
+    # Execution USER
+def execution_user(request) :
+    context = {'execution' : 'execution'}
+    html_template = loader.get_template('contributeur/Execution.html')
+    return HttpResponse(html_template.render(context, request)) 
+    # Afficher les information de journal traité 
+def affichage_user(request):
+    context = {'afficheer' : 'afficher'}
+    html_template = loader.get_template('contributeur/Affichage.html')
+    return HttpResponse(html_template.render(context, request)) 
+    #Rapport personnel de l'utilisateur simple
+def rapport_user(request):
+    context={'rapport' : 'rapport'}
+    html_template = loader.get_template('contributeur/Rapport_user.html')
+    return HttpResponse(html_template.render(context, request))
+    
+    
 @login_required(login_url="/login/")
 def pages(request):
     context = {}

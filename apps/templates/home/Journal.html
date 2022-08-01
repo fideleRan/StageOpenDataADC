@@ -1,4 +1,4 @@
-{% extends "layouts/base.html" %}
+{% extends "layouts/base_admin.html" %}
 
 {% block title %} Dashboard {% endblock %} 
 
@@ -37,12 +37,12 @@
                                             <h5>Ajouter une journal</h5>
                                         </div>
                                         <div class="card-block">
-                                            <form>
+                                            <form methode="POST" action =" ">{% csrf_token %} 
                                                 <div class="form-group">
                                                     <label>Nom Journal</label>
-                                                    <input type="text" class="form-control" placeholder="Nom du Journal">
+                                                    <input type="text" class="form-control" placeholder="Nom du Journal" id="txtNom_journal" required>
                                                 </div>
-                                                <button type="button" class="btn btn-outline-light" title="" data-toggle="tooltip">Ajouter</button>
+                                                <button type="submit" class="btn btn-outline-light" title="" data-toggle="tooltip">Ajouter</button>
                                             </form>
                                         </div>
                                     </div>
@@ -64,30 +64,16 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        {% for journal in journal %}
                                                         <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>LE-TELEGRAMME-EDITION-LORIENT</td>
+                                                            <th scope="row">{{ journal.id }}</th>
+                                                            <td>{{ journal.Nom_journal }}</td>
                                                             <td>
                                                                 <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
                                                                 <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>SUD-OUEST-LA-ROCHELLE</td>
-                                                            <td>
-                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
-                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>OUEST-FRANCE-EDITION-NORD-MAYENNE</td>
-                                                            <td>
-                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
-                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
-                                                            </td>
-                                                        </tr>
+                                                        {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>

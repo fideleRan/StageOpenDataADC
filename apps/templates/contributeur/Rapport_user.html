@@ -1,0 +1,262 @@
+{% extends "layouts/base_user.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <!-- [ breadcrumb ] start -->
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/"><i class="feather icon-activity"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Rapport personnel</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Contributeur ► MADDY</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="card-block table-border-style">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Additif/Rectificatif/Erratum/Modification</th>
+                                                                        <th>DOUBLON</th>
+                                                                        <th>Aucune ville sur Parution et cérémonie </th>
+                                                                        <th>Date de cérémonie ant. au jour / Cérémonie chez le Défunt / Cérémonie dans l'Intimité familiale</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="collapse" id="collapseExample" style="">
+                                <form action="" methode="POST">
+                                    <div class="row">
+                                        <!-- Nb de page -->
+                                        <div class="col-sm-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5>Nombre de page dans cette journal</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <form class="form-inline">
+                                                        <div class="form-group mb-2">
+                                                            <label class="sr-only">nb</label>
+                                                            <input type="number" min ="0" class="form-control" placeholder=""> 
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Nb d'ADC -->
+                                        <div class="col-sm-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5>Nombre d'ADC dans cette journal</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <form class="form-inline">
+                                                        <div class="form-group mb-2">
+                                                            <label class="sr-only">nb</label>
+                                                            <input type="number" min ="0" class="form-control" placeholder=""> 
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Journal a ne pas traité -->
+                                        <div class="col-sm-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5>Journal à ne pas traité </h5>
+                                                </div>
+                                                <div class="card-block table-border-style">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Additif/Rectificatif/Erratum/Modification</th>
+                                                                    <th>DOUBLON</th>
+                                                                    <th>Aucune ville sur Parution et cérémonie </th>
+                                                                    <th>Date de cérémonie ant. au jour / Cérémonie chez le Défunt / Cérémonie dans l'Intimité familiale</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <!-- Additif/Rectificatif/Erratum/Modification -->
+                                                                    <td>
+                                                                        <form class="form-inline">
+                                                                            <div class="form-group mb-2">
+                                                                                <label for="staticEmail2" class="sr-only">nb</label>
+                                                                                <input type="number" min ="0" value="0" class="form-control" placeholder=""> 
+                                                                            </div>
+                                                                        </form>
+                                                                    </td>
+                                                                    <!-- DOUBLON -->
+                                                                    <td>
+                                                                        <form class="form-inline">
+                                                                            <div class="form-group mb-2">
+                                                                                <label for="staticEmail2" class="sr-only">nb</label>
+                                                                                <input type="number" min ="0"  value="0" class="form-control" placeholder=""> 
+                                                                            </div>
+                                                                        </form>
+                                                                    </td>
+                                                                    <!-- Date de cérémonie ant. au jour / Cérémonie chez le Défunt / Cérémonie dans l'Intimité familiale -->
+                                                                    <td>
+                                                                        <form class="form-inline">
+                                                                            <div class="form-group mb-2">
+                                                                                <label for="staticEmail2" class="sr-only">nb</label>
+                                                                                <input type="number" min ="0" value="0" class="form-control" placeholder=""> 
+                                                                            </div>
+                                                                        </form>
+                                                                    </td>
+                                                                    <!-- Aucune ville sur Parution et cérémonie -->
+                                                                    <td>
+                                                                        <form class="form-inline">
+                                                                            <div class="form-group mb-2">
+                                                                                <label for="staticEmail2" class="sr-only">nb</label>
+                                                                                <input type="number" min ="0" value="0" class="form-control" placeholder=""> 
+                                                                            </div>
+                                                                        </form>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Absent dans la base -->
+                                        <div class="col-sm-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5>AUTRE</h5>
+                                                </div>
+                                                <div class="card-block table-border-style">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Absent dans la base</th>
+                                                                    <th>Autre à son domicile (Repos)</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <!-- Abs dans la base -->
+                                                                    <td>
+                                                                        <form class="form-inline">
+                                                                            <div class="form-group mb-2">
+                                                                                <label for="staticEmail2" class="sr-only">nb</label>
+                                                                                <input type="number" min="0" value="0" class="form-control" placeholder=""> 
+                                                                            </div>
+                                                                        </form>
+                                                                    </td>
+                                                                    <!-- Autre a son domicile -->
+                                                                    <td>
+                                                                        <form class="form-inline">
+                                                                            <div class="form-group mb-2">
+                                                                                <label for="staticEmail2" class="sr-only">nb</label>
+                                                                                <input type="number" min="0" value="0" class="form-control" placeholder=""> 
+                                                                            </div>
+                                                                        </form>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- Obsevation -->
+                                        <div class="col-sm-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5>Observation</h5>
+                                                </div>
+                                                <div class="card-block">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlTextarea1">EXPLICATIONS DES PROBLEMES, ANNOTATIONS, DOUTES ET REMARQUES</label>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- verification et enregistrement -->
+                                        <div class="col-sm-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5>Vérification et enregistrement</h5>
+                                                </div>
+                                                <div class="card-block">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label style="padding-left:45%">Jalon</label>
+                                                            <input type="checkbox" class="form-control" placeholder=""> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <a href="{% url 'affiche_journal' %}" type="submit" class="btn btn-outline-primary mb-2">Enregistrer les informations de cet journal  </a>
+                                                        </div>
+                                                        <div class="col">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->            
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

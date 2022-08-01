@@ -1,0 +1,188 @@
+{% extends "layouts/base_user.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <!-- [ breadcrumb ] start -->
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/"><i class="feather icon-edit"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Traitement</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-12">
+                                        <h5>Les journaux</h5>
+                                        <hr>
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-uppercase active show" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Disponibles</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-uppercase" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">En cours</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-uppercase" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Traités</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                <!-- Liste journal disponible -->
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>id</th>
+                                                                <th>Nom du Journal</th>
+                                                                <th>check</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>LE-TELEGRAMME-EDITION-LORIENT</td>
+                                                                <td>
+                                                                    <a href="{% url 'execution_user_url' %}"><i class="feather icon-edit"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">25</th>
+                                                                <td>SUD-OUEST-LA-ROCHELLE</td>
+                                                                <td>
+                                                                    <a href="{% url 'execution_user_url' %}"><i class="feather icon-edit"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">10</th>
+                                                                <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
+                                                                <td>
+                                                                    <a href="{% url 'execution_user_url' %}"><i class="feather icon-edit"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                                <!-- Liste journal en cours -->
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>id</th>
+                                                                <th>Nom du Journal</th>
+                                                                <th>Nom du traiteur</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>LE-TELEGRAMME-EDITION-LORIENT</td>
+                                                                <td>THÉO</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">25</th>
+                                                                <td>SUD-OUEST-LA-ROCHELLE</td>
+                                                                <td>MADDY</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">10</th>
+                                                                <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
+                                                                <td>MICHEL</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                                <!-- Liste journal deja traitée -->
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>id</th>
+                                                                <th>Nom du Journal</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>LE-TELEGRAMME-EDITION-LORIENT</td>
+                                                                <td>
+                                                                   <i class="feather icon-check-circle"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">25</th>
+                                                                <td>SUD-OUEST-LA-ROCHELLE</td>
+                                                                <td>
+                                                                    <i class="feather icon-check-circle"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">10</th>
+                                                                <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
+                                                                <td>
+                                                                    <i class="feather icon-check-circle"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">10</th>
+                                                                <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
+                                                                <td>
+                                                                    <i class="feather icon-check-circle"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">10</th>
+                                                                <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
+                                                                <td>
+                                                                    <i class="feather icon-check-circle"></i>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--[ Recent Users ] end-->
+                                <!--[social-media section] end-->
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->            
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

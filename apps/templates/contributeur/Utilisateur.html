@@ -1,4 +1,4 @@
-{% extends "layouts/base_admin.html" %}
+{% extends "layouts/base_user.html" %}
 
 {% block title %} Dashboard {% endblock %} 
 
@@ -19,8 +19,8 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <ul class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="/"><i class="feather icon-user"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Contributeur</a></li>
+                                        <li class="breadcrumb-item"><a href="/"><i class="feather icon-file-text"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Accueil</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -34,23 +34,15 @@
                                 <div class="col-md-12 col-xl-4">
                                     <div class="card yearly-sales">
                                         <div class="card-header">
-                                            <h5>Ajouter un contributeur</h5>
+                                            <h5>Ajouter une journal</h5>
                                         </div>
                                         <div class="card-block">
-                                            <form>
+                                            <form methode="POST" action =" ">{% csrf_token %} 
                                                 <div class="form-group">
-                                                    <label>Nom</label>
-                                                    <input type="text" class="form-control" placeholder="Nom">
+                                                    <label>Nom Journal</label>
+                                                    <input type="text" class="form-control" placeholder="Nom du Journal" id="txtNom_journal" required>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Prénom</label>
-                                                    <input type="text" class="form-control" placeholder="Prénom">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Email</label>
-                                                    <input type="email" class="form-control" placeholder="exemple@gmail.com">
-                                                </div>
-                                                <button type="button" class="btn btn-outline-light" title="" data-toggle="tooltip">Ajouter</button>
+                                                <button type="submit" class="btn btn-outline-light" title="" data-toggle="tooltip">Ajouter</button>
                                             </form>
                                         </div>
                                     </div>
@@ -59,7 +51,7 @@
                                 <div class="col-xl-8 col-md-6">
                                     <div class="card Recent-Users">
                                         <div class="card-header">
-                                            <h5>Liste des contributeurs</h5>
+                                            <h5>Liste des journals</h5>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -67,43 +59,21 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Nom</th>
-                                                            <th>Prénom</th>
-                                                            <th>Email</th>
+                                                            <th>Nom Journal</th>
                                                             <th>Options</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        {% for journal in journal %}
                                                         <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>ANDRIMALALA</td>
-                                                            <td>Rakoto</td>
-                                                            <td>rokoto02@gmail.com</td>
+                                                            <th scope="row">{{ journal.id }}</th>
+                                                            <td>{{ journal.Nom_journal }}</td>
                                                             <td>
                                                                 <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
                                                                 <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>RANDRIAMARO</td>
-                                                            <td>Thornton</td>
-                                                            <td>Thornton356@gmail.com</td>
-                                                            <td>
-                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
-                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>ZAFIMANANA</td>
-                                                            <td>Andreas</td>
-                                                            <td>andreas865@gmail.com</td>
-                                                            <td>
-                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
-                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
-                                                            </td>
-                                                        </tr>
+                                                        {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>

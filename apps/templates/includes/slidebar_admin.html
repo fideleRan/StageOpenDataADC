@@ -1,0 +1,42 @@
+<!-- [ navigation menu ] start -->
+<nav class="pcoded-navbar">
+    <div class="navbar-wrapper">
+        <div class="navbar-brand header-logo">
+            <a href="/" class="b-brand">
+                <img class="rounded-circle" style="width:50px;" src="/static/assets/images/logoOD2.png" alt="activity-user">
+                <span class="b-title">OpenData</span>
+            </a>
+            <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+        </div>
+        <div class="navbar-content scroll-div">
+            <ul class="nav pcoded-inner-navbar">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>SUIVI D'AVIE DE DECES</label>
+                </li>
+                <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
+                    class="nav-item {% if 'index' in segment %} active {% endif %}">
+                    <a href="{% url 'home' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span
+                            class="pcoded-mtext">Accueil</span></a>
+                </li>
+                <li data-username="Profile Page" 
+                    class="nav-item {% if 'profile' in segment %} active {% endif %}">
+                    <a href="{% url 'contrib' %}" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                            <span class="pcoded-mtext">Contributeur</span></a>
+                </li>
+                <li data-username="form elements advance componant validation masking wizard picker select"
+                    class="nav-item {% if 'form_elements' in segment %} active {% endif %}">
+                    <a href="{% url 'jrnl' %}" class="nav-link "><span class="pcoded-micon"><i
+                            class="feather icon-file-text"></i></span><span
+                            class="pcoded-mtext">Journal</span></a>
+                </li>       
+                <li data-username="form elements advance componant validation masking wizard picker select"
+                    class="nav-item {% if 'form_elements' in segment %} active {% endif %}">
+                    <a href="{% url 'rapp_user' %}" class="nav-link "><span class="pcoded-micon"><i
+                            class="feather icon-rotate-ccw"></i></span><span
+                            class="pcoded-mtext">Récapitulation</span></a>
+                </li>         
+        </div>
+    </div>
+</nav>
+<!-- [ navigation menu ] end -->

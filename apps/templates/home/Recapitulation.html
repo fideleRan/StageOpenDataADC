@@ -1,0 +1,140 @@
+{% extends "layouts/base_admin.html" %}
+
+{% block title %} Charts {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <!-- [ breadcrumb ] start -->
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/"><i class="feather icon-rotate-ccw"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Récapitulation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Date de récapitulation</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <form class="form-inline">
+                                                <div class="form-group mx-sm-5 mb-2">
+                                                    <input type="date" class="form-control" id="inputPassword2" placeholder="Password">
+                                                </div>
+                                                <a class="btn btn-primary m-t-5" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">Voir</a>
+                                            </form>
+                                            <div class="collapse" id="collapseExample" style="">
+                                                <div class="card-header">
+                                                    <h5>Récapitulation le 20/07/2022</h5>
+                                                </div>
+                                                <div class="card-block table-border-style">
+                                                    <div class="table-responsive" style="width:100%">
+                                                        <table class="table table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th rowspan="2"><p>Contributeur</p></th>
+                                                                    <th rowspan="2"><p>Nb édition traités</p></th>
+                                                                    <th rowspan="2"><p>Nb page traités</p></th>
+                                                                    <th rowspan="2"><p>Nb ADC traités</p></th>
+                                                                    <th colspan="2">Temps travail effectif</th>
+                                                                    <th rowspan="2"><p>Nb approximatif de page <br>traité par heure</p></th>
+                                                                    <th colspan="2">    Vitesse</th>
+                                                                    <th rowspan="2"><p>Nb Lieu absent <br>Lieu tous confondus</p></th>
+                                                                    <th rowspan="2"><p>TAUX <br>Lieu absent</p></th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>minute</th>
+                                                                    <th>heure</th>
+                                                                    <th>ADC/minute</th>
+                                                                    <th>ADC/heure</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">MADDY</th>
+                                                                    <td>24</td>
+                                                                    <td>70</td>
+                                                                    <td>229</td>
+                                                                    <td>229</td>
+                                                                    <td>259,22</td>
+                                                                    <td>4,22</td>
+                                                                    <td>16</td>
+                                                                    <td>1,13</td>
+                                                                    <td>2</td>
+                                                                    <td>0,87</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">KEVIN</th>
+                                                                    <td>0</td>
+                                                                    <td>0</td>
+                                                                    <td>0,00</td>
+                                                                    <td>0,00</td>
+                                                                    <td>0</td>
+                                                                    <td>0</td>
+                                                                    <td>0,00</td>
+                                                                    <td>0,00</td>
+                                                                    <td>0</td>
+                                                                    <td>0,00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">THÉO</th>
+                                                                    <td>12</td>
+                                                                    <td>26</td>
+                                                                    <td>186</td>
+                                                                    <td>243,83</td>
+                                                                    <td>4,06</td>
+                                                                    <td>6</td>
+                                                                    <td>46</td>
+                                                                    <td>1,31</td>
+                                                                    <td>8</td>
+                                                                    <td>4,30</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <!-- chart-morris Js -->
+    <script src="{{ ASSETS_ROOT }}/plugins/chart-morris/js/raphael.min.js"></script>
+    <script src="{{ ASSETS_ROOT }}/plugins/chart-morris/js/morris.min.js"></script>
+    <script src="{{ ASSETS_ROOT }}/js/pages/chart-morris-custom.js"></script>
+
+{% endblock javascripts %}
