@@ -4,7 +4,7 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from django.contrib import admin
-from apps.home.models import Journal
+
 
 # Register your models here.
-admin.site.register(Journal)
+

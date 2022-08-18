@@ -11,7 +11,7 @@ from django.template import loader
 from django.urls import reverse
 from django.shortcuts import render
 
-from apps.home.models import Journal
+
 
 
 @login_required(login_url="/login/")
@@ -25,19 +25,12 @@ def index(request):
 
     # View Journal_admin
 def journal(request) :
-    #Ajout journal
-    if request.method=="POST":
-        nom_du_journal = request.POST['nomJournal']
-        objet_journal = Journal.objects.create(nom_du_journal = nom_du_journal)
-        
-    else:
-        pass
+    # #Ajout journal
+    # context = {'jrnl', 'journal'}
+    # html_template = loader.get_template('home/Journal.html')
+    # return HttpResponse(html_template.render(context, request))
     
-    #Afficher tout les journaux
-    journaux = Journal.objects.all()
-    context = {'journal' : journaux }
-    html_template = loader.get_template('home/Journal.html')
-    return HttpResponse(html_template.render(context, request))
+    return render(request, 'home/Journal.html')
 
     # View Contributeur_admin
 def contributeur(request) :

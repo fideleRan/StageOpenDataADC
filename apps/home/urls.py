@@ -20,7 +20,7 @@ urlpatterns = [
     
     # -- SIMPLE USER -- #
         #++Accueil
-    path('contributeur/user/', views.utilisateur , name="accueil_user_url"),
+    path('contributeur/user/', views.utilisateur , name="accueil_user_url"), # ovaina
         #++Traitement
     path('contributeur/traitement/', views.traitement_user , name='traitement_user_url'),
         #++Execution
