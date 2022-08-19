@@ -1,7 +1,5 @@
 # -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
+
 
 from multiprocessing import context
 from django import template
@@ -47,26 +45,26 @@ def recapitulation(request) :
 # -------------- SIMPLE USER -------------- #
 # View Utilisateur simple
     # Accueil USER
-def utilisateur(request) :
-    context = {'utilisateur' : 'utilisateur'}
-    html_template = loader.get_template('contributeur/Utilisateur.html')
-    return HttpResponse(html_template.render(context, request))
-    # Traitement USER
-def traitement_user(request) :
-    context = {'traitement' : 'traitement'}
-    html_template = loader.get_template('contributeur/Traitement.html')
-    return HttpResponse(html_template.render(context, request))    
-    # Execution USER
-def execution_user(request) :
-    context = {'execution' : 'execution'}
-    html_template = loader.get_template('contributeur/Execution.html')
-    return HttpResponse(html_template.render(context, request)) 
-    # Afficher les information de journal traité 
-def affichage_user(request):
-    context = {'afficheer' : 'afficher'}
-    html_template = loader.get_template('contributeur/Affichage.html')
-    return HttpResponse(html_template.render(context, request)) 
-    #Rapport personnel de l'utilisateur simple
+# def utilisateur(request) :
+#     context = {'utilisateur' : 'utilisateur'}
+#     html_template = loader.get_template('contributeur/Utilisateur.html')
+#     return HttpResponse(html_template.render(context, request))
+#     # Traitement USER
+# def traitement_user(request) :
+#     context = {'traitement' : 'traitement'}
+#     html_template = loader.get_template('contributeur/Traitement.html')
+#     return HttpResponse(html_template.render(context, request))    
+#     # Execution USER
+# def execution_user(request) :
+#     context = {'execution' : 'execution'}
+#     html_template = loader.get_template('contributeur/Execution.html')
+#     return HttpResponse(html_template.render(context, request)) 
+#     # Afficher les information de journal traité 
+# def affichage_user(request):
+#     context = {'afficheer' : 'afficher'}
+#     html_template = loader.get_template('contributeur/Affichage.html')
+#     return HttpResponse(html_template.render(context, request)) 
+#     #Rapport personnel de l'utilisateur simple
 def rapport_user(request):
     context={'rapport' : 'rapport'}
     html_template = loader.get_template('contributeur/Rapport_user.html')
@@ -79,7 +77,6 @@ def pages(request):
     # All resource paths end in .html.
     # Pick out the html file name from the url. And load that template.
     try:
-
         load_template = request.path.split('/')[-1]
 
         if load_template == 'admin':
