@@ -7,13 +7,13 @@ from apps.home import views
 urlpatterns = [
     # -- ADMIN USER -- #
         #++Journal page
-    path('adminUser/journal/', views.journal, name="jrnl"),
+    path('journal/', views.journal, name="jrnl"),
     
         #++Contributeur page
-    path('adminUser/contributeur/', views.contributeur, name="contrib"),
+    path('contributeur/', views.contributeur, name="contrib"),
     
         #++Recapitulation page
-    path('adminUser/recapitulation/' , views.recapitulation, name="recap"),
+    path('recapitulation/' , views.recapitulation, name="recap"),
     
     
     # -- SIMPLE USER -- #

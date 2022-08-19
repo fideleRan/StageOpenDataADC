@@ -8,6 +8,6 @@ def journal(request):
 urlpatterns = [
     path('admin/', admin.site.urls),          # Django admin route
     path("", include("apps.authentication.urls")), # Auth routes - login / register
-    path("", include("apps.home.urls")),
+    path("adminUser/", include("apps.home.urls")),
     path("contributeur/", include("apps.contributeur.urls"))
 ]
