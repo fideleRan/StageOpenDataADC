@@ -1,8 +1,13 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
 from django.db import models
 
 # Create your models here.
+class Action(models.Model):
+    nom_action = models.CharField(max_length=50)
+
+
+class StatutJournal(models.Model):
+    nom_statut_journal = models.CharField(max_length=50)
+
+
+class StatutTache(models.Model):
+    nom_statut_tache = models.CharField(max_length=50)
