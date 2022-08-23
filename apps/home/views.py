@@ -6,9 +6,10 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-
+from apps.home.forms import ContributeurForm
+from apps.contributeur.models import Contributeur
 
 @login_required(login_url="/login/")
 # ---------------- ADMIN USER ----------------- #
@@ -21,19 +22,30 @@ def index(request):
 
     # View Journal_admin
 def journal(request) :
-    # #Ajout journal
-    # context = {'jrnl', 'journal'}
-    # html_template = loader.get_template('home/Journal.html')
-    # return HttpResponse(html_template.render(context, request))
     
     return render(request, 'home/Journal.html')
 
     # View Contributeur_admin
 def contributeur(request) :
-    context = {'contib' : 'contributeur'}
+    form = ContributeurForm()
+    if request.method == 'POST':
+        form = ContributeurForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/adminUser/contributeur/")
+
+    contributeurs = Contributeur.objects.all()
+
+
+    context = {
+        'contib' : 'contributeur',
+        'form' : form,
+        'contributeurs' : contributeurs
+    }
     html_template = loader.get_template('home/Contributeur.html')
     return HttpResponse(html_template.render(context, request))
     # View Recapitulation_admin
+
 def recapitulation(request) :
     context = {'recap' : 'recapitulation'}
     html_template = loader.get_template('home/Recapitulation.html')
