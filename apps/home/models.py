@@ -11,3 +11,7 @@ class StatutJournal(models.Model):
 
 class StatutTache(models.Model):
     nom_statut_tache = models.CharField(max_length=50)
+
+
+class JournalName(models.Model):
+    nom_journal = models.CharField(max_length=50)
