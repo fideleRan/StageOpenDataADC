@@ -8,8 +8,9 @@ from django.template import loader
 from django.urls import reverse
 from django.shortcuts import render, redirect
 
-from apps.home.forms import ContributeurForm
+from apps.home.forms import ContributeurForm, JournalForm
 from apps.contributeur.models import Contributeur
+from apps.home.models import JournalName
 
 @login_required(login_url="/login/")
 # ---------------- ADMIN USER ----------------- #
@@ -22,8 +23,25 @@ def index(request):
 
     # View Journal_admin
 def journal(request) :
-    
-    return render(request, 'home/Journal.html')
+    form = JournalForm()
+    if request.method == 'POST':
+        print("request post")
+        form = JournalForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print("save journal")
+            return redirect("/adminUser/journal/")
+        else:
+            print("unsave journal")
+
+    journals = JournalName.objects.all()
+
+    context = {
+        'form' : form,
+        'journals' : journals
+    }
+
+    return render(request, 'home/Journal.html', context=context)
 
     # View Contributeur_admin
 def contributeur(request) :
@@ -35,7 +53,6 @@ def contributeur(request) :
             return redirect("/adminUser/contributeur/")
 
     contributeurs = Contributeur.objects.all()
-
 
     context = {
         'contib' : 'contributeur',

@@ -37,11 +37,13 @@
                                             <h5>Ajouter une journal</h5>
                                         </div>
                                         <div class="card-block">
-                                            <form methode="POST" action =" ">{% csrf_token %} 
-                                                <div class="form-group">
+                                            <form action="" method="POST">
+                                                {% csrf_token %}
+                                                <!-- <div class="form-group">
                                                     <label>Nom Journal</label>
                                                     <input type="text" class="form-control" placeholder="Nom du Journal" id="txtNom_journal" required>
-                                                </div>
+                                                </div> -->
+                                                {{form}}
                                                 <button type="submit" class="btn btn-outline-light" title="" data-toggle="tooltip">Ajouter</button>
                                             </form>
                                         </div>
@@ -64,16 +66,16 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        
+                                                        {% for journal in journals %}
                                                         <tr>
-                                                            <th scope="row"></th>
-                                                            <td></td>
+                                                            <th scope="row">{{ journal.id }}</th>
+                                                            <td>{{ journal.nom_journal }}</td>
                                                             <td>
                                                                 <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
                                                                 <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
                                                             </td>
                                                         </tr>
-                                                        
+                                                        {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>
