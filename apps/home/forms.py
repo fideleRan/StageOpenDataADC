@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from apps.contributeur.models import Contributeur
-from .models import JournalName
+from .models import JournalName, Action
 
 class ContributeurForm(ModelForm):
     class Meta:
@@ -11,7 +11,13 @@ class ContributeurForm(ModelForm):
             'email_contributeur'
         ]
 
+
 class JournalForm(ModelForm):
     class Meta:
         model = JournalName
+        fields = "__all__"
+
+class ActionForm(ModelForm):
+    class Meta:
+        model = Action
         fields = "__all__"

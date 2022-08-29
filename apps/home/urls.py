@@ -1,18 +1,12 @@
 # -*- encoding: utf-8 -*-
-
-
 from django.urls import path, re_path
 from apps.home import views
 
 urlpatterns = [
     # -- ADMIN USER -- #
-        #++Journal page
     path('journal/', views.journal, name="jrnl"),
-    
-        #++Contributeur page
     path('contributeur/', views.contributeur, name="contrib"),
-    
-        #++Recapitulation page
+    path('action/', views.action, name="action"),
     path('recapitulation/' , views.recapitulation, name="recap"),
     
     

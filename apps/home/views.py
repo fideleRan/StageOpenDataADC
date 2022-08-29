@@ -8,9 +8,9 @@ from django.template import loader
 from django.urls import reverse
 from django.shortcuts import render, redirect
 
-from apps.home.forms import ContributeurForm, JournalForm
+from apps.home.forms import ContributeurForm, JournalForm, ActionForm
 from apps.contributeur.models import Contributeur
-from apps.home.models import JournalName
+from apps.home.models import JournalName, Action
 
 @login_required(login_url="/login/")
 # ---------------- ADMIN USER ----------------- #
@@ -62,6 +62,23 @@ def contributeur(request) :
     html_template = loader.get_template('home/Contributeur.html')
     return HttpResponse(html_template.render(context, request))
     # View Recapitulation_admin
+
+def action(request):
+    form = ActionForm()
+    if request.method == "POST":
+        form = ActionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/adminUser/action/")
+
+    actions = Action.objects.all()
+
+    context = {
+        'form' : form,
+        'actions' : actions
+    }
+
+    return render(request, "home/action.html", context)
 
 def recapitulation(request) :
     context = {'recap' : 'recapitulation'}
