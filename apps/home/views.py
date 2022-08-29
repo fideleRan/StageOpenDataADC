@@ -8,9 +8,9 @@ from django.template import loader
 from django.urls import reverse
 from django.shortcuts import render, redirect
 
-from apps.home.forms import ContributeurForm, JournalForm, ActionForm
+from apps.home.forms import ContributeurForm, JournalForm, ActionForm, StatutJournalForm, StatutTacheForm
 from apps.contributeur.models import Contributeur
-from apps.home.models import JournalName, Action
+from apps.home.models import JournalName, Action, StatutJournal, StatutTache
 
 @login_required(login_url="/login/")
 # ---------------- ADMIN USER ----------------- #
@@ -79,6 +79,39 @@ def action(request):
     }
 
     return render(request, "home/action.html", context)
+
+def statut_journal(request):
+    form = StatutJournalForm()
+    if request.method == "POST":
+        form = StatutJournalForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/adminUser/statutJournal/")
+
+    statut_journals = StatutJournal.objects.all()
+
+    context = {
+        'form' : form,
+        'statut_journals' : statut_journals
+    }
+    return render(request, "home/statut_journal.html", context)
+
+def statut_tache(request):
+    form = StatutTacheForm()
+    if request.method == "POST":
+        form = StatutTacheForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/adminUser/statutTache/")
+
+    statut_taches = StatutTache.objects.all()
+
+    context = {
+        'form' : form,
+        'statut_taches' : statut_taches
+    }
+
+    return render(request, "home/statut_tache.html", context)
 
 def recapitulation(request) :
     context = {'recap' : 'recapitulation'}

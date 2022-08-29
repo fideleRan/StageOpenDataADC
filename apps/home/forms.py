@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from apps.contributeur.models import Contributeur
-from .models import JournalName, Action
+from .models import JournalName, Action, StatutJournal, StatutTache
 
 class ContributeurForm(ModelForm):
     class Meta:
@@ -20,4 +20,16 @@ class JournalForm(ModelForm):
 class ActionForm(ModelForm):
     class Meta:
         model = Action
+        fields = "__all__"
+
+    
+class StatutJournalForm(ModelForm):
+    class Meta:
+        model = StatutJournal
+        fields = "__all__"
+
+
+class StatutTacheForm(ModelForm):
+    class Meta:
+        model = StatutTache
         fields = "__all__"

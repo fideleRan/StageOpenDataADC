@@ -7,6 +7,8 @@ urlpatterns = [
     path('journal/', views.journal, name="jrnl"),
     path('contributeur/', views.contributeur, name="contrib"),
     path('action/', views.action, name="action"),
+    path('statutJournal/', views.statut_journal),
+    path('statutTache/', views.statut_tache),
     path('recapitulation/' , views.recapitulation, name="recap"),
     
     
