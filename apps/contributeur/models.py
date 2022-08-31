@@ -11,8 +11,7 @@ class Contributeur(models.Model):
 
 
 class Journal(models.Model):
-    edition = models.PositiveSmallIntegerField()
-    
+    #edition = models.PositiveSmallIntegerField()
     nom_journal = models.ForeignKey(JournalName, on_delete=models.CASCADE) # !
     nombre_de_page = models.PositiveSmallIntegerField() 
     nombre_ADC = models.PositiveSmallIntegerField(default=0)

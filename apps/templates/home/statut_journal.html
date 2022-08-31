@@ -7,6 +7,8 @@
 
 {% block content %}
 
+{% load widget_tweaks %}
+
     <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
@@ -39,11 +41,12 @@
                                         <div class="card-block">
                                             <form action="" method="POST">
                                                 {% csrf_token %}
-                                                <!-- <div class="form-group">
-                                                    <label>Nom Journal</label>
-                                                    <input type="text" class="form-control" placeholder="Nom du Journal" id="txtNom_journal" required>
-                                                </div> -->
-                                                {{form}}
+                                                <div class="form-group">
+                                                    <label>Nom statut Journal</label>
+                                                    <!-- <input type="text" class="form-control" placeholder="Nom du Journal" id="txtNom_journal" required> -->
+                                                    {{ form.nom_statut_journal|attr:"class:form-control"|attr:"placeholder:Nom du statut de journal" }}
+                                                </div>
+                                                <!-- {{form}} -->
                                                 <button type="submit" class="btn btn-outline-light" title="" data-toggle="tooltip">Ajouter</button>
                                             </form>
                                         </div>

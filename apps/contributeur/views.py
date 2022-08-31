@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-def accuiel_contributeur(request):
+def accuiel_contributeur(request): #?
     return render(request, "contributeur/Utilisateur.html")
 
 def traitement_contributeur(request):
