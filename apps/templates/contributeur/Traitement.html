@@ -59,7 +59,16 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
+                                                            {% for journal in journals %}
+                                                                <tr>
+                                                                    <th scope="row">{{ journal.id }}</th>
+                                                                    <td>{{ journal.nom_journal }}</td>
+                                                                    <td>
+                                                                        <a href="{% url 'execution_user_url' %}"><i class="feather icon-edit"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                            <!-- <tr>
                                                                 <th scope="row">1</th>
                                                                 <td>LE-TELEGRAMME-EDITION-LORIENT</td>
                                                                 <td>
@@ -79,7 +88,7 @@
                                                                 <td>
                                                                     <a href="{% url 'execution_user_url' %}"><i class="feather icon-edit"></i></a>
                                                                 </td>
-                                                            </tr>
+                                                            </tr> -->
                                                         </tbody>
                                                     </table>
                                                 </div>
