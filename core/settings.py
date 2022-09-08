@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.home',  # Enable the inner home (home)
     'apps.contributeur',
+    'apps.authentication',
     'widget_tweaks'
 ]
 
@@ -149,3 +150,5 @@ STATICFILES_DIRS = (
 #############################################################
 #############################################################
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'authentication.User'
