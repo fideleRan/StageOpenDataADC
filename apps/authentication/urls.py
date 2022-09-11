@@ -12,6 +12,6 @@ urlpatterns = [
     # path('register/', register_user, name="register"),
     path("logout/", LogoutView.as_view(), name="logout"),
 
-    path("inscription/", inscription, name="inscription"),
+    path("inscription/<str:pk>/", inscription, name="inscription"),
     path("authentification/", authentification, name="authentificaton")
 ]

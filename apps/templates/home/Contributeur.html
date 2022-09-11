@@ -88,7 +88,7 @@
                                                             <td> {{ contributeur.prenom_contributeur }} </td>
                                                             <td> {{ contributeur.email_contributeur }} </td>
                                                             <td>
-                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
+                                                                <a href="{% url 'inscription' contributeur.id %}" class="label theme-bg2 text-white f-12">Modifier</a>
                                                                 <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
                                                             </td>
                                                         </tr>

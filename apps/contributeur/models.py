@@ -9,6 +9,9 @@ class Contributeur(models.Model):
 
     action_contributeur = models.ForeignKey(Action, on_delete=models.SET_NULL, null=True) 
 
+    def __str__(self):
+        return self.nom_contributeur + " " + self.prenom_contributeur
+
 
 class Journal(models.Model):
     #edition = models.PositiveSmallIntegerField()

@@ -8,56 +8,13 @@ User = get_user_model()
 class InscriptionForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2', 'is_adminUser']
-
-
-# class LoginForm(forms.Form):
-#     username = forms.CharField(
-#         widget=forms.TextInput(
-#             attrs={
-#                 "placeholder": "Username",
-#                 "class": "form-control"
-#             }
-#         ))
-#     password = forms.CharField(
-#         widget=forms.PasswordInput(
-#             attrs={
-#                 "placeholder": "Password",
-#                 "class": "form-control"
-#             }
-#         ))
-
-
-# class SignUpForm(UserCreationForm):
-#     username = forms.CharField(
-#         widget=forms.TextInput(
-#             attrs={
-#                 "placeholder": "Username",
-#                 "class": "form-control"
-#             }
-#         ))
-#     email = forms.EmailField(
-#         widget=forms.EmailInput(
-#             attrs={
-#                 "placeholder": "Email",
-#                 "class": "form-control"
-#             }
-#         ))
-#     password1 = forms.CharField(
-#         widget=forms.PasswordInput(
-#             attrs={
-#                 "placeholder": "Password",
-#                 "class": "form-control"
-#             }
-#         ))
-#     password2 = forms.CharField(
-#         widget=forms.PasswordInput(
-#             attrs={
-#                 "placeholder": "Password check",
-#                 "class": "form-control"
-#             }
-#         ))
-
-#     class Meta:
-#         model = User
-#         fields = ('username', 'email', 'password1', 'password2')
+        fields = [
+            'username', 
+            'password1', 
+            'password2', 
+            'is_adminUser', 
+            'contributeur',
+            'last_name',
+            'first_name',
+            'email',
+        ]
