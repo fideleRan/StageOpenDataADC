@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from .forms import InscriptionForm
+from .forms import InscriptionForm, SetContributeurHaveAccountTrue
 from apps.contributeur.models import Contributeur
 
 
@@ -8,6 +8,9 @@ def inscription(request, pk):
     contributeur = Contributeur.objects.get(id=pk)
     msg = ""
     form = InscriptionForm()
+    set_have_account_true = SetContributeurHaveAccountTrue(instance=contributeur)
+
+    set_have_account_true.fields['have_account'].initial = True
 
     form.fields['contributeur'].initial = contributeur
     form.fields['username'].initial = contributeur.nom_contributeur 
@@ -15,11 +18,15 @@ def inscription(request, pk):
     form.fields['first_name'].initial = contributeur.prenom_contributeur
     form.fields['email'].initial = contributeur.email_contributeur
 
-    print(form)
+    # print(contributeur.have_account)
+    # print(set_have_account_true)
     if request.method == "POST":
         form = InscriptionForm(data=request.POST)  
-        if form.is_valid():
+        set_have_account_true = SetContributeurHaveAccountTrue(request.POST, instance=contributeur)
+        if form.is_valid() and set_have_account_true.is_valid():
             form.save()
+            set_have_account_true.save()
+            print(contributeur.have_account)
             print("save")
             msg = "saved"
             return redirect("/authentification/")
@@ -31,7 +38,8 @@ def inscription(request, pk):
     context = {
         'form' : form,
         'msg' : msg,
-        'contributeur' : contributeur
+        'contributeur' : contributeur,
+        'set_have_account_true' : set_have_account_true
     }
 
     return render(request, "accounts/inscription.html", context=context)

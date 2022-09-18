@@ -88,7 +88,12 @@
                                                             <td> {{ contributeur.prenom_contributeur }} </td>
                                                             <td> {{ contributeur.email_contributeur }} </td>
                                                             <td>
+                                                                {% if not contributeur.have_account %}
+                                                                <!-- {{ contributeur.have_account }} -->      
                                                                 <a href="{% url 'inscription' contributeur.id %}" class="label theme-bg2 text-white f-12">Modifier</a>
+                                                                {% else %}
+                                                                <a href="#" class="label theme-bg2 text-white f-12">Modifier</a> <!-- ovaina couleur -->
+                                                                {% endif %}
                                                                 <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
                                                             </td>
                                                         </tr>

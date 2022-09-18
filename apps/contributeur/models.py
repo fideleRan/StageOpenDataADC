@@ -8,6 +8,7 @@ class Contributeur(models.Model):
     email_contributeur = models.EmailField(max_length=30)
 
     action_contributeur = models.ForeignKey(Action, on_delete=models.SET_NULL, null=True) 
+    have_account = models.BooleanField(default=False)
 
     def __str__(self):
         return self.nom_contributeur + " " + self.prenom_contributeur
