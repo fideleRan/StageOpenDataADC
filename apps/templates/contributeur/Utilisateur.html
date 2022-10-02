@@ -94,6 +94,38 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div >
+                                    <div>
+                                        <ul class="pagination">
+                                            {% if journals.has_previous %}
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page={{ journals.previous_page_number }}">Precedent</a>
+                                            </li>
+                                            {% endif %}
+
+                                            <li class="page-item active">
+                                                <a class="page-link" href="?page={{ journals.number }}">{{ journals.number }}</a>
+                                            </li>
+                                            <li class="page-item" desable>
+                                                <a class="page-link" href="#">...</a>
+                                            </li>
+                                            {% if journals.paginator.num_pages != journals.number %}
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page={{ journals.paginator.num_pages }}">{{ journals.paginator.num_pages }}</a>
+                                            </li>
+                                            {% endif %}
+
+                                            {% if journals.has_next %}
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page={{ journals.next_page_number }}">Suivant</a>
+                                            </li>
+                                            {% endif %}
+
+                                        </ul>
+                                    </div>
+
+                                </div>
                                 <!--[ Recent Users ] end-->
                                 <!--[social-media section] end-->
                             </div>

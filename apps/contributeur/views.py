@@ -7,14 +7,16 @@ from .forms import (
     ExcluExecutionForm, 
     JournalExecutionModifForm
     )
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def accuiel_contributeur(request): #?
     contributeur = request.user.contributeur
     journals = Journal.objects.all().filter(contributeur=contributeur).order_by('date_heure_debut').reverse()
 
-    j = Journal.objects.filter().values()
-    print(j)
+    paginator = Paginator(journals, 10)
+    page = request.GET.get('page')
+    journals = paginator.get_page(page)
 
     context = {
         "journals" : journals
