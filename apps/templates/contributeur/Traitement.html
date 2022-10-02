@@ -7,6 +7,8 @@
 
 {% block content %}
 
+{% load widget_tweaks %}
+
     <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
@@ -60,35 +62,18 @@
                                                         </thead>
                                                         <tbody>
                                                             {% for journal in journals %}
+                                                            
                                                                 <tr>
                                                                     <th scope="row">{{ journal.id }}</th>
                                                                     <td>{{ journal.nom_journal }}</td>
                                                                     <td>
-                                                                        <a href="{% url 'execution_user_url' %}"><i class="feather icon-edit"></i></a>
+                                                                        
+                                                                        <a href="{% url 'execution_user_url' journal.id %}"><i class="feather icon-edit"></i></a>
                                                                     </td>
                                                                 </tr>
+                                                                
                                                             {% endfor %}
-                                                            <!-- <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>LE-TELEGRAMME-EDITION-LORIENT</td>
-                                                                <td>
-                                                                    <a href="{% url 'execution_user_url' %}"><i class="feather icon-edit"></i></a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">25</th>
-                                                                <td>SUD-OUEST-LA-ROCHELLE</td>
-                                                                <td>
-                                                                    <a href="{% url 'execution_user_url' %}"><i class="feather icon-edit"></i></a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">10</th>
-                                                                <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
-                                                                <td>
-                                                                    <a href="{% url 'execution_user_url' %}"><i class="feather icon-edit"></i></a>
-                                                                </td>
-                                                            </tr> -->
+                                                            
                                                         </tbody>
                                                     </table>
                                                 </div>

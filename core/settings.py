@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'apps.home',  # Enable the inner home (home)
     'apps.contributeur',
     'apps.authentication',
-    'widget_tweaks'
+    'widget_tweaks',
+    'django_filters'
 ]
 
 MIDDLEWARE = [

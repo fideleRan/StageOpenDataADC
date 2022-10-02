@@ -31,7 +31,7 @@
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
                             <div class="row">
-                                <div class="col-md-12 col-xl-4">
+                                <!-- <div class="col-md-12 col-xl-4">
                                     <div class="card yearly-sales">
                                         <div class="card-header">
                                             <h5>Ajouter une journal</h5>
@@ -46,12 +46,12 @@
                                             </form>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!--[ Recent Users ] start-->
-                                <div class="col-xl-8 col-md-6">
+                                <div class="col-xl-12 col-md-6">
                                     <div class="card Recent-Users">
                                         <div class="card-header">
-                                            <h5>Liste des journals</h5>
+                                            <h5>Liste des journals traite</h5>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -60,19 +60,33 @@
                                                         <tr>
                                                             <th>#</th>
                                                             <th>Nom Journal</th>
-                                                            <th>Options</th>
+                                                            <th>Date et heure de debut</th>
+                                                            <th>Nombre de page</th>
+                                                            <th>Nombre d'ADC</th>
+                                                            <th>A ne pas traiter</th>
+                                                            <th>Autres</th>
+                                                            <th>Heure fin</th>
+                                                            <th>Statut du journal</th>
+                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        {% for journal in journal %}
+                                                        
+                                                        {% for journal in journals %}
+                                                        
                                                         <tr>
                                                             <th scope="row">{{ journal.id }}</th>
-                                                            <td>{{ journal.Nom_journal }}</td>
-                                                            <td>
-                                                                <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a>
-                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
-                                                            </td>
+                                                            <td>{{ journal.nom_journal }}</td>
+                                                            <td>{{ journal.date_heure_debut }} </td>
+                                                            <td> {{ journal.nombre_de_page }} </td>
+                                                            <td> {{ journal.nombre_ADC }} </td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td> {{ journal.heure_fin }} </td>
+                                                            <td> {{ journal.statut_journal }} </td>
+                                                            
                                                         </tr>
+                                                        
                                                         {% endfor %}
                                                     </tbody>
                                                 </table>
