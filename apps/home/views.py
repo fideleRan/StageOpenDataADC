@@ -12,16 +12,14 @@ from apps.home.forms import ContributeurForm, JournalForm, ActionForm, StatutJou
 from apps.contributeur.models import Contributeur
 from apps.home.models import JournalName, Action, StatutJournal, StatutTache
 
-@login_required(login_url="/login/")
-# ---------------- ADMIN USER ----------------- #
-# views Admin
-    # views Accueil_admin
+@login_required(login_url="authentificaton")
 def index(request):
     context = {'segment': 'index'}
     html_template = loader.get_template('home/Accueil.html')
     return HttpResponse(html_template.render(context, request))
 
     # View Journal_admin
+@login_required(login_url="authentificaton")
 def journal(request) :
     form = JournalForm()
     if request.method == 'POST':
@@ -43,7 +41,7 @@ def journal(request) :
 
     return render(request, 'home/Journal.html', context=context)
 
-    # View Contributeur_admin
+@login_required(login_url="authentificaton")
 def contributeur(request) :
     form = ContributeurForm()
     if request.method == 'POST':
@@ -63,6 +61,7 @@ def contributeur(request) :
     return HttpResponse(html_template.render(context, request))
     # View Recapitulation_admin
 
+@login_required(login_url="authentificaton")
 def action(request):
     form = ActionForm()
     if request.method == "POST":
@@ -80,6 +79,7 @@ def action(request):
 
     return render(request, "home/action.html", context)
 
+@login_required(login_url="authentificaton")
 def statut_journal(request):
     form = StatutJournalForm()
     if request.method == "POST":
@@ -96,6 +96,7 @@ def statut_journal(request):
     }
     return render(request, "home/statut_journal.html", context)
 
+@login_required(login_url="authentificaton")
 def statut_tache(request):
     form = StatutTacheForm()
     if request.method == "POST":
@@ -113,6 +114,7 @@ def statut_tache(request):
 
     return render(request, "home/statut_tache.html", context)
 
+@login_required(login_url="authentificaton")
 def recapitulation(request) :
     context = {'recap' : 'recapitulation'}
     html_template = loader.get_template('home/Recapitulation.html')

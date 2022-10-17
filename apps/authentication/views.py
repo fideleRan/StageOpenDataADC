@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import InscriptionForm, SetContributeurHaveAccountTrue
 from apps.contributeur.models import Contributeur
 
@@ -68,3 +68,7 @@ def authentification(request):
     }
 
     return render(request, "accounts/authentification.html", context=context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect("authentificaton")

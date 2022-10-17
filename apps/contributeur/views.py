@@ -8,8 +8,10 @@ from .forms import (
     JournalExecutionModifForm
     )
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url="authentificaton")
 def accuiel_contributeur(request): #?
     contributeur = request.user.contributeur
     journals = Journal.objects.all().filter(contributeur=contributeur).order_by('date_heure_debut').reverse()
@@ -27,7 +29,7 @@ def accuiel_contributeur(request): #?
 
     return render(request, "contributeur/Utilisateur.html", context)
 
-
+@login_required(login_url="authentificaton")
 def traitement_contributeur(request):
     journals = JournalName.objects.all()
     statut_journals_default = StatutJournal.objects.get(nom_statut_journal='en saisi')
@@ -48,6 +50,7 @@ def traitement_contributeur(request):
 
     return render(request, "contributeur/Traitement.html", context )
 
+@login_required(login_url="authentificaton")
 def execution_contributeur(request, pk):
     journalName = JournalName.objects.get(id=pk)
     statut_journals = StatutJournal.objects.all()
@@ -108,6 +111,7 @@ def execution_contributeur(request, pk):
     return render(request, "contributeur/Execution.html", context)
 
 
+@login_required(login_url="authentificaton")
 def execution_modif(request):
     journals = Journal.objects.all()[len(Journal.objects.all()) - 1]
     journal_modif = Journal.objects.get(id=journals.id)
@@ -145,5 +149,6 @@ def execution_modif(request):
 
     return render(request, 'contributeur/Execution_modif.html', context)
 
+@login_required(login_url="authentificaton")
 def affiche_contributeur(request):
     return render(request, "contributeur/Affichage.html")
