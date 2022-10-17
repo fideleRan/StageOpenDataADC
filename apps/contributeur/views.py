@@ -30,10 +30,20 @@ def accuiel_contributeur(request): #?
 
 def traitement_contributeur(request):
     journals = JournalName.objects.all()
+    statut_journals_default = StatutJournal.objects.get(nom_statut_journal='en saisi')
+    get_journals = Journal.objects.filter(statut_journal=1).values()
+    
+    print(get_journals[1])
+
+    listeJournal = []
+    for j in journals:
+        listeJournal.append(j)
+    
+    
     
     context = {
         # 'formJournal' : formJournal,
-        'journals' : journals
+        'journals' : listeJournal
     }
 
     return render(request, "contributeur/Traitement.html", context )
@@ -67,7 +77,7 @@ def execution_contributeur(request, pk):
         else:
             print("unsave")
         
-    #bug journal 4 
+    
 
     if journals_get is not None:
             formADC.fields['reference_ADC'].initial = "{} ADC/{}".format(journalName, journals_get.id) 
