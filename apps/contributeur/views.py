@@ -32,20 +32,22 @@ def accuiel_contributeur(request): #?
 @login_required(login_url="authentificaton")
 def traitement_contributeur(request):
     journals = JournalName.objects.all()
-    statut_journals_default = StatutJournal.objects.get(nom_statut_journal='en saisi')
-    get_journals = Journal.objects.filter(statut_journal=1).values()
-    
-    print(get_journals[1])
+    journals_traites = Journal.objects.values_list()
+    journals_traites = Journal.objects.filter(statut_journal=2) 
+    print(journals_traites)
 
+    journals_en_cours = Journal.objects.filter(statut_journal=1)
+    
+    
     listeJournal = []
     for j in journals:
         listeJournal.append(j)
     
-    
-    
     context = {
         # 'formJournal' : formJournal,
-        'journals' : listeJournal
+        'journals' : listeJournal,
+        'journals_traites' : journals_traites,
+        'journals_en_cours' : journals_en_cours
     }
 
     return render(request, "contributeur/Traitement.html", context )

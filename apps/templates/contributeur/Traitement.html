@@ -90,7 +90,14 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            {% for journal in journals_en_cours %}
                                                             <tr>
+                                                                <th scope="row">{{ journal.nom_journal.id }}</th>
+                                                                <td>{{ journal.nom_journal }}</td>
+                                                                <td> {{ journal.contributeur.nom_contributeur }} </td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                            <!-- <tr>
                                                                 <th scope="row">1</th>
                                                                 <td>LE-TELEGRAMME-EDITION-LORIENT</td>
                                                                 <td>THÉO</td>
@@ -104,7 +111,7 @@
                                                                 <th scope="row">10</th>
                                                                 <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
                                                                 <td>MICHEL</td>
-                                                            </tr>
+                                                            </tr> -->
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -121,7 +128,16 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            {% for journal in journals_traites %}
                                                             <tr>
+                                                                <th scope="row">{{ journal.nom_journal.id }}</th>
+                                                                <td>{{ journal.nom_journal }}</td>
+                                                                <td>
+                                                                   <i class="feather icon-check-circle"></i>
+                                                                </td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                            <!-- <tr>
                                                                 <th scope="row">1</th>
                                                                 <td>LE-TELEGRAMME-EDITION-LORIENT</td>
                                                                 <td>
@@ -155,7 +171,7 @@
                                                                 <td>
                                                                     <i class="feather icon-check-circle"></i>
                                                                 </td>
-                                                            </tr>
+                                                            </tr> -->
                                                         </tbody>
                                                     </table>
                                                 </div>
