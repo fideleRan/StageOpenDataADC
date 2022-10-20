@@ -49,83 +49,68 @@
                                 </div> -->
                                 <!--[ Recent Users ] start-->
                                 <div class="col-xl-12 col-md-6">
-                                    <div class="card Recent-Users">
-                                        <div class="card-header">
-                                            <h5>Liste des journals traite</h5>
+                                    <div class="card-block ">
+                                        <div class="table-users">
+                                            <table cellspacing="1" >
+                                            <tr>
+                                                <th>Nom Journal</th>
+                                                <th>Date et heure de debut</th>
+                                                <th>Nombre de page</th>
+                                                <th>Nombre d'ADC</th>
+                                                <th>Heure fin</th>
+                                                <th>Statut du journal</th>
+                                            </tr>
+                                            {% for journal in journals %}
+                                                <tr>
+                                                    <!-- <th scope="row">{{ journal.id }}</th> -->
+                                                    <td>{{ journal.nom_journal }}</td>
+                                                    <td>{{ journal.date_heure_debut }} </td>
+                                                    <td> {{ journal.nombre_de_page }} </td>
+                                                    <td> {{ journal.nombre_ADC }} </td>
+                                                    <!-- <td></td>
+                                                    <td></td> -->
+                                                    <td> {{ journal.heure_fin }} </td>
+                                                    <td> {{ journal.statut_journal }} </td>
+                                                </tr>
+                                                {% endfor %}
+                                            </table>
                                         </div>
-                                        <div class="card-block table-border-style">
-                                            <div class="table-responsive">
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <!-- <th>#</th> -->
-                                                            <th>Nom Journal</th>
-                                                            <th>Date et heure de debut</th>
-                                                            <th>Nombre de page</th>
-                                                            <th>Nombre d'ADC</th>
-                                                            <!-- <th>A ne pas traiter</th>
-                                                            <th>Autres</th> -->
-                                                            <th>Heure fin</th>
-                                                            <th>Statut du journal</th>
-                                                            
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        
-                                                        {% for journal in journals %}
-                                                        
-                                                        <tr>
-                                                            <!-- <th scope="row">{{ journal.id }}</th> -->
-                                                            <td>{{ journal.nom_journal }}</td>
-                                                            <td>{{ journal.date_heure_debut }} </td>
-                                                            <td> {{ journal.nombre_de_page }} </td>
-                                                            <td> {{ journal.nombre_ADC }} </td>
-                                                            <!-- <td></td>
-                                                            <td></td> -->
-                                                            <td> {{ journal.heure_fin }} </td>
-                                                            <td> {{ journal.statut_journal }} </td>
-                                                            
-                                                        </tr>
-                                                        
-                                                        {% endfor %}
-                                                    </tbody>
-                                                </table>
+                                        <!--Pagination-->
+                                        <div style="padding-left :10%">
+                                            <div>
+                                                <ul class="pagination">
+                                                    {% if journals.has_previous %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ journals.previous_page_number }}">Precedent</a>
+                                                    </li>
+                                                    {% endif %}
+        
+                                                    <li class="page-item active">
+                                                        <a class="page-link" href="?page={{ journals.number }}">{{ journals.number }}</a>
+                                                    </li>
+                                                    <li class="page-item" desable>
+                                                        <a class="page-link" href="#">...</a>
+                                                    </li>
+                                                    {% if journals.paginator.num_pages != journals.number %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ journals.paginator.num_pages }}">{{ journals.paginator.num_pages }}</a>
+                                                    </li>
+                                                    {% endif %}
+        
+                                                    {% if journals.has_next %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ journals.next_page_number }}">Suivant</a>
+                                                    </li>
+                                                    {% endif %}
+        
+                                                </ul>
                                             </div>
+        
                                         </div>
                                     </div>
                                 </div>
 
-                                <div >
-                                    <div>
-                                        <ul class="pagination">
-                                            {% if journals.has_previous %}
-                                            <li class="page-item">
-                                                <a class="page-link" href="?page={{ journals.previous_page_number }}">Precedent</a>
-                                            </li>
-                                            {% endif %}
-
-                                            <li class="page-item active">
-                                                <a class="page-link" href="?page={{ journals.number }}">{{ journals.number }}</a>
-                                            </li>
-                                            <li class="page-item" desable>
-                                                <a class="page-link" href="#">...</a>
-                                            </li>
-                                            {% if journals.paginator.num_pages != journals.number %}
-                                            <li class="page-item">
-                                                <a class="page-link" href="?page={{ journals.paginator.num_pages }}">{{ journals.paginator.num_pages }}</a>
-                                            </li>
-                                            {% endif %}
-
-                                            {% if journals.has_next %}
-                                            <li class="page-item">
-                                                <a class="page-link" href="?page={{ journals.next_page_number }}">Suivant</a>
-                                            </li>
-                                            {% endif %}
-
-                                        </ul>
-                                    </div>
-
-                                </div>
+                                
                                 <!--[ Recent Users ] end-->
                                 <!--[social-media section] end-->
                             </div>

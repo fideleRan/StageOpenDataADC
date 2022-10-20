@@ -68,26 +68,30 @@
                                         <div class="card-header">
                                             <h5>Liste des contributeurs</h5>
                                         </div>
-                                        <div class="card-block table-border-style">
-                                            <div class="table-responsive">
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Nom</th>
-                                                            <th>Prénom</th>
-                                                            <th>Email</th>
-                                                            <th>Options</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {% for contributeur in contributeurs %}
-                                                        <tr>
-                                                            <th scope="row">{{ contributeur.id }}</th>
-                                                            <td> {{ contributeur.nom_contributeur }} </td>
-                                                            <td> {{ contributeur.prenom_contributeur }} </td>
-                                                            <td> {{ contributeur.email_contributeur }} </td>
-                                                            <td>
+                                        <div class="card-body">
+                                            <!--Card content-->
+                                            <div class="row">
+                                                {% for contributeur in contributeurs %}
+                                                <div class="col" style="padding-bottom:7%">
+                                                    <div class="carte">
+                                                        <div class="carte__side carte__side--front">
+                                                          <!-- Front Content -->
+                                                          <div class="carte__cont" style="text-align:center">
+                                                              <div>
+                                                                  <span class="pcoded-m"><i class="feather icon-user icon-lg"></i></span>
+                                                                  <h4>{{ contributeur.nom_contributeur }}</h4>
+                                                                  <h5>{{ contributeur.prenom_contributeur }}</h5>
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                        <div class="carte__side carte__side--back">
+                                                          <!-- Back Content -->
+                                                          <div class="carte__cta">
+                                                            <p>Id : {{ contributeur.id }}</p>
+                                                            <p>Nom : {{ contributeur.nom_contributeur }}</p>
+                                                            <p>Prénom : {{ contributeur.prenom_contributeur }}</p>
+                                                            <p>Email : {{ contributeur.email_contributeur }}</p>
+                                                            <div style="text-align:center">
                                                                 {% if not contributeur.have_account %}
                                                                 <!-- {{ contributeur.have_account }} -->      
                                                                 <a href="{% url 'inscription' contributeur.id %}" class="label theme-bg2 text-white f-12">Modifier</a>
@@ -95,14 +99,16 @@
                                                                 <a href="#" class="label theme-bg1 text-white f-12">Compte</a> <!-- ovaina couleur -->
                                                                 {% endif %}
                                                                 <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
-                                                            </td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                       
-                                                    </tbody>
-                                                </table>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                                
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </div>
                                 <!--[ Recent Users ] end-->

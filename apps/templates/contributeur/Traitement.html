@@ -35,100 +35,76 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-12">
-                                        <h5>Les journaux</h5>
                                         <hr>
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link text-uppercase active show" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Disponibles</a>
+                                                <a class="nav-link text-uppercase active show" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">journaux Disponibles</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link text-uppercase" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">En cours</a>
+                                                <a class="nav-link text-uppercase" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">journaux En cours</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link text-uppercase" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Traités</a>
+                                                <a class="nav-link text-uppercase" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">journaux Traitées</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab">
                                                 <!-- Liste journal disponible -->
-                                                <div class="table-responsive">
-                                                    <table class="table table-hover">
-                                                        <thead>
+                                                <div class="card-block ">
+                                                    <div class="table-users">
+                                                        <table cellspacing="1" >
+                                                        <tr>
+                                                            <th width=10>id</th>
+                                                            <th width=900>Nom du Journal</th>
+                                                            <th>check</th>
+                                                        </tr>
+                                                        {% for journal in journals %}
                                                             <tr>
-                                                                <th>id</th>
-                                                                <th>Nom du Journal</th>
-                                                                <th>check</th>
+                                                                <th scope="row">{{ journal.id }}</th>
+                                                                <td>{{ journal.nom_journal }}</td>
+                                                                <td>
+                                                                    <a href="{% url 'execution_user_url' journal.id %}"><i class="feather icon-edit"></i></a>
+                                                                </td>
                                                             </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            {% for journal in journals %}
-                                                            
-                                                                <tr>
-                                                                    <th scope="row">{{ journal.id }}</th>
-                                                                    <td>{{ journal.nom_journal }}</td>
-                                                                    <td>
-                                                                        
-                                                                        <a href="{% url 'execution_user_url' journal.id %}"><i class="feather icon-edit"></i></a>
-                                                                    </td>
-                                                                </tr>
-                                                                
-                                                            {% endfor %}
-                                                            
-                                                        </tbody>
-                                                    </table>
+                                                        {% endfor %}
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                                 <!-- Liste journal en cours -->
-                                                <div class="table-responsive">
-                                                    <table class="table table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>id</th>
-                                                                <th>Nom du Journal</th>
-                                                                <th>Nom du traiteur</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            {% for journal in journals_en_cours %}
+                                                <div class="card-block ">
+                                                    <div class="table-users">
+                                                        <table cellspacing="1" >
+                                                        <tr>
+                                                            <th width=10>id</th>
+                                                            <th width=800>Nom du Journal</th>
+                                                            <th>Nom du traiteur</th>
+                                                        </tr>
+                                                        {% for journal in journals_en_cours %}
                                                             <tr>
                                                                 <th scope="row">{{ journal.nom_journal.id }}</th>
                                                                 <td>{{ journal.nom_journal }}</td>
                                                                 <td> {{ journal.contributeur.nom_contributeur }} </td>
                                                             </tr>
-                                                            {% endfor %}
-                                                            <!-- <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>LE-TELEGRAMME-EDITION-LORIENT</td>
-                                                                <td>THÉO</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">25</th>
-                                                                <td>SUD-OUEST-LA-ROCHELLE</td>
-                                                                <td>MADDY</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">10</th>
-                                                                <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
-                                                                <td>MICHEL</td>
-                                                            </tr> -->
-                                                        </tbody>
-                                                    </table>
+                                                        {% endfor %}
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                                 <!-- Liste journal deja traitée -->
-                                                <div class="table-responsive">
-                                                    <table class="table table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>id</th>
-                                                                <th>Nom du Journal</th>
-                                                                <th></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            {% for journal in journals_traites %}
+                                                <div class="card-block ">
+                                                    <div class="table-users">
+                                                        <table cellspacing="1" >
+                                                        <tr>
+                                                            <th width=10>id</th>
+                                                            <th width=900>Nom du Journal</th>
+                                                            <th>Statut</th>
+                                                        </tr>
+                                                        {% for journal in journals_traites %}
                                                             <tr>
                                                                 <th scope="row">{{ journal.nom_journal.id }}</th>
                                                                 <td>{{ journal.nom_journal }}</td>
@@ -136,46 +112,12 @@
                                                                    <i class="feather icon-check-circle"></i>
                                                                 </td>
                                                             </tr>
-                                                            {% endfor %}
-                                                            <!-- <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>LE-TELEGRAMME-EDITION-LORIENT</td>
-                                                                <td>
-                                                                   <i class="feather icon-check-circle"></i>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">25</th>
-                                                                <td>SUD-OUEST-LA-ROCHELLE</td>
-                                                                <td>
-                                                                    <i class="feather icon-check-circle"></i>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">10</th>
-                                                                <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
-                                                                <td>
-                                                                    <i class="feather icon-check-circle"></i>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">10</th>
-                                                                <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
-                                                                <td>
-                                                                    <i class="feather icon-check-circle"></i>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">10</th>
-                                                                <td>LA-DEPECHE-EDITION-DE-HAUTE-GARONNE</td>
-                                                                <td>
-                                                                    <i class="feather icon-check-circle"></i>
-                                                                </td>
-                                                            </tr> -->
-                                                        </tbody>
-                                                    </table>
+                                                        {% endfor %}
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>

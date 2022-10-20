@@ -54,36 +54,30 @@
                                 </div>
                                 <!--[ Recent Users ] start-->
                                 <div class="col-xl-8 col-md-6">
-                                    <div class="card Recent-Users">
-                                        <div class="card-header">
-                                            <h5>Liste des journals</h5>
-                                        </div>
-                                        <div class="card-block table-border-style">
-                                            <div class="table-responsive">
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Nom Journal</th>
-                                                            <th>Options</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {% for journal in journals %}
-                                                        <tr>
-                                                            <th scope="row">{{ journal.id }}</th>
-                                                            <td>{{ journal.nom_journal }}</td>
-                                                            <td>
-                                                                <!-- <a href="#!" class="label theme-bg2 text-white f-12">Modifier</a> -->
-                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
-                                                            </td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                                    
+                                    <!--Modifier-->
+                                    <div class="card-block ">
+                                        <div class="table-users">
+                                            <div class="header">Liste des journaux</div>
+                                            <table cellspacing="1" >
+                                               <tr>
+                                                  <th>#</th>
+                                                  <th>Nom des journaux</th>
+                                                  <th>Options</th>
+                                               </tr>
+                                               {% for journal in journals %}
+                                               <tr>
+                                                  <td>{{ journal.id }}</td>
+                                                  <td>{{ journal.nom_journal }}</td>
+                                                  <td>
+                                                    <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
+                                                  </td>
+                                               </tr>
+                                               {% endfor %}
+                                            </table>
+                                         </div>
                                     </div>
+                                    
                                 </div>
                                 <!--[ Recent Users ] end-->
                                 <!--[social-media section] end-->
