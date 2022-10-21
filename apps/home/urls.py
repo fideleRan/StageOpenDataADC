@@ -10,7 +10,7 @@ urlpatterns = [
     path('statutJournal/', views.statut_journal),
     path('statutTache/', views.statut_tache),
     path('recapitulation/' , views.recapitulation, name="recap"),
-    
+    path('profile/', views.profil_info, name="profile"),
     
 
     path('contributeur/monRapport/', views.rapport_user, name='rapp_user'),

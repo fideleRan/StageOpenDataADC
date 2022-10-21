@@ -68,9 +68,9 @@
                                         <div class="card-header">
                                             <h5>Liste des contributeurs</h5>
                                         </div>
-                                        <div class="card-body">
+                                        <div class="card-body" >
                                             <!--Card content-->
-                                            <div class="row">
+                                            <div class="row" style="height: 640px; overflow: auto">
                                                 {% for contributeur in contributeurs %}
                                                 <div class="col" style="padding-bottom:7%">
                                                     <div class="carte">
@@ -78,7 +78,7 @@
                                                           <!-- Front Content -->
                                                           <div class="carte__cont" style="text-align:center">
                                                               <div>
-                                                                  <span class="pcoded-m"><i class="feather icon-user icon-lg"></i></span>
+                                                                    <div style="padding-bottom:20px"><img class="rounded-circle" style="width:50px;" src="/static/assets/images/user2.png" alt="activity-user"> </div>
                                                                   <h4>{{ contributeur.nom_contributeur }}</h4>
                                                                   <h5>{{ contributeur.prenom_contributeur }}</h5>
                                                               </div>
@@ -87,19 +87,22 @@
                                                         <div class="carte__side carte__side--back">
                                                           <!-- Back Content -->
                                                           <div class="carte__cta">
-                                                            <p>Id : {{ contributeur.id }}</p>
-                                                            <p>Nom : {{ contributeur.nom_contributeur }}</p>
-                                                            <p>Prénom : {{ contributeur.prenom_contributeur }}</p>
-                                                            <p>Email : {{ contributeur.email_contributeur }}</p>
-                                                            <div style="text-align:center">
-                                                                {% if not contributeur.have_account %}
-                                                                <!-- {{ contributeur.have_account }} -->      
-                                                                <a href="{% url 'inscription' contributeur.id %}" class="label theme-bg2 text-white f-12">Modifier</a>
-                                                                {% else %}
-                                                                <a href="#" class="label theme-bg1 text-white f-12">Compte</a> <!-- ovaina couleur -->
-                                                                {% endif %}
-                                                                <a href="#!" class="label theme-bg text-white f-12">Supprimer</a>
+                                                            <div style="  border-radius:12px; background-color :#5f5f5f">
+                                                                <p style="text-align: center"> {{ contributeur.id }}</p>
+                                                                <p>Nom : {{ contributeur.nom_contributeur }}</p>
+                                                                <p>Prénom : {{ contributeur.prenom_contributeur }}</p>
+                                                                <p>Email : {{ contributeur.email_contributeur }}</p>
+                                                                <div style="text-align:center; background-color:#2f2f2f; border-radius:12px">
+                                                                    {% if not contributeur.have_account %}
+                                                                    <!-- {{ contributeur.have_account }} -->      
+                                                                    <a href="{% url 'inscription' contributeur.id %}" class="rounded label theme-bg2 text-white f-12">Modifier</a>
+                                                                    {% else %}
+                                                                    <a href="#" class="rounded label theme-bg1 text-white f-12">Compte</a> <!-- ovaina couleur -->
+                                                                    {% endif %}
+                                                                    <a href="#!" class="rounded label theme-bg text-white f-12">Supprimer</a>
+                                                                </div>
                                                             </div>
+                                                            
                                                           </div>
                                                         </div>
                                                     </div>

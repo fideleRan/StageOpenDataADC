@@ -173,3 +173,6 @@ def pages(request):
     except:
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
+
+def profil_info(request):
+    return render(request, 'home/profile.html')

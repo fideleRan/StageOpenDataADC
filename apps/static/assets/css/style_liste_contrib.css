@@ -32,6 +32,7 @@
     height: 10rem;
     width: 20rem;
     position: relative;
+    align-items: center;
 }
 
 .carte__side {
@@ -89,7 +90,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    color: white;
+    color: #ffffff;
 }
 
 .carte__cta p {
